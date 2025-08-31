@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Welcome, {{ user }} 👋</h2>
+<h3>Shared Jobs</h3>
+<table border="1" cellpadding="5">
+    <tr>
+        <th>Title</th><th>Company</th><th>Role</th><th>Link</th><th>Posted By</th><th>Status</th>
+    </tr>
+    {% for job in jobs %}
+    <tr>
+        <td>{{ job[1] }}</td>
+        <td>{{ job[2] }}</td>
+        <td>{{ job[3] }}</td>
+        <td><a href="{{ job[4] }}" target="_blank">Apply</a></td>
+        <td>{{ job[5] }}</td>
+        <td>{{ job[6] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
