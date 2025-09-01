@@ -7,14 +7,22 @@ app = Flask(__name__)
 app.secret_key = "supersecretkey" 
 
 # PostgreSQL Connection
+import psycopg2
+import os
+from urllib.parse import urlparse
+
 def get_db_connection():
+    result = urlparse("postgresql://jobsdb_0b0d_user:gmxH6nC6JgCtZsb6IWH5taQ4bEtPMUTY@dpg-d2qq8nadbo4c73cflmbg-a.singapore-postgres.render.com/jobsdb_0b0d")
     conn = psycopg2.connect(
-        host="dpg-d2qq8nadbo4c73cflmbg-a",
-        user="jobsdb_0b0d_user",          # Change to your postgres user
-        password="gmxH6nC6JgCtZsb6IWH5taQ4bEtPMUTY",         # Change to your postgres password
-        database="jobsdb_0b0d"         # Make sure this DB exists in Postgres
+        dbname=result.path[1:],
+        user=result.username,
+        password=result.password,
+        host=result.hostname,
+        port=result.port,
+        sslmode="require"   # important for Render/Neon
     )
     return conn
+
 
 # Initialize DB
 def init_db():
