@@ -8,12 +8,12 @@
     </tr>
     {% for job in jobs %}
     <tr>
-        <td>{{ job[1] }}</td>
-        <td>{{ job[2] }}</td>
-        <td>{{ job[3] }}</td>
-        <td><a href="{{ job[4] }}" target="_blank">Apply</a></td>
-        <td>{{ job[5] }}</td>
-        <td>{{ job[6] }}</td>
+        <td>{{ job.title }}</td>
+        <td>{{ job.company }}</td>
+        <td>{{ job.role }}</td>
+        <td><a href="{{ job.link }}" target="_blank">Apply</a></td>
+        <td>{{ job.posted_by }}</td>
+        <td>{{ job.status }}</td>
     </tr>
     {% endfor %}
 </table>
