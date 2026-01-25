@@ -65,7 +65,7 @@
 - **Python** (Flask)
 - **HTML/CSS**
 - **PostgreSQL** (Database)
-- **Render.com** (Deployment Platform)
+- **Render.com** (Deployment Platform
 
 ## License
 
